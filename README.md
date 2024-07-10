@@ -78,7 +78,7 @@ To add output caching to your views, use the `OutputCache` attribute on your con
         public async Task<IActionResult> Index()
         {
             return View();
-        }}
+        }
     ```
 
 
