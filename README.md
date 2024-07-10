@@ -73,12 +73,11 @@ Output caching is now enabled for your application. The library will automatical
 To add output caching to your views, use the `OutputCache` attribute on your controller actions:
 
     ```csharp
-
-        [OutputCache(PolicyName = "KenticoPolicy")]
-        public async Task<IActionResult> Index()
-        {
-            return View();
-        }
+    [OutputCache(PolicyName = "KenticoPolicy")]
+    public async Task<IActionResult> Index()
+    {
+        return View();
+    }
     ```
 
 
