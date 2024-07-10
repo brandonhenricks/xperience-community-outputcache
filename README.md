@@ -1,35 +1,38 @@
-```markdown
 # XperienceCommunity.OutputCache
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Build Status](https://github.com/XperienceCommunity/OutputCache/actions/workflows/build.yml/badge.svg)](https://github.com/XperienceCommunity/OutputCache/actions)
+[![Build Status](https://github.com/Xperience-Community-OutputCache/actions/workflows/build.yml/badge.svg)](https://github.com/Xperience-Community-OutputCache/actions)
 
 ## Overview
 
-**XperienceCommunity.OutputCache** is a .NET library designed to integrate Xperience by Kentico with .NET 7 / 8 output caching. This library enables efficient cache invalidation triggered by content updates within the Kentico CMS, ensuring that your application's content remains up-to-date without compromising on performance.
+**XperienceCommunity.OutputCache** is a .NET library designed to seamlessly integrate output caching with Xperience by Kentico, supporting .NET 7 / 8. This library facilitates efficient cache invalidation, triggered by content updates within the Kentico CMS, ensuring that your application's content remains fresh and up-to-date without compromising on performance. Output caching can significantly improve the responsiveness of your web applications by storing the rendered output of pages, reducing the need for repeated processing of requests for the same content.
+
+### Why Use Output Caching?
+
+- **Improved Performance**: Reduces server load and response times by serving content from the cache.
+- **Dynamic Content Updates**: Ensures users see the most current content without manual cache clearing, thanks to automatic invalidation.
 
 ## Features
 
-- **Seamless Integration**: Easily integrates Xperience by Kentico with .NET 7 / 8 output cache.
-- **Cache Invalidation**: Automatically invalidates cached content when updates are made to pages within Kentico.
-- **High Performance**: Optimized for high performance, leveraging .NET's advanced caching mechanisms.
+- **Seamless Integration**: Easily integrates with .NET 7 / 8 output cache, enhancing your Kentico Xperience projects.
+- **Cache Invalidation**: Automatically invalidates cached content upon updates to pages within Kentico, ensuring content freshness.
+- **High Performance**: Leverages .NET's advanced caching mechanisms for optimal performance.
 
 ## Getting Started
 
 ### Prerequisites
 
-- .NET 7 or 8
-- Xperience by Kentico
+- .NET 7 or 8 installed on your development machine.
+- An existing project with Xperience by Kentico (29.1.4 or higher).
 
 ### Installation
 
-You can install the package via NuGet:
+To integrate **XperienceCommunity.OutputCache** into your project, follow these steps:
 
-```bash
-dotnet add package XperienceCommunity.OutputCache
-```
+#### Via NuGet Package Manager Console
 
-Or via the NuGet Package Manager in Visual Studio:
+Open the NuGet Package Manager Console in Visual Studio and run:
+
 
 ```powershell
 Install-Package XperienceCommunity.OutputCache
@@ -47,7 +50,11 @@ Install-Package XperienceCommunity.OutputCache
         // Add Xperience Output Cache services
         services.AddXperienceOutputCache();
         
-        // Other service registrations...
+        // Other Xperience Output Cache Policy.
+        services.AddOutputCache(options =>
+        {
+            options.AddXperienceOutputCachePolicy("KenticoPolicy", TimeSpan.FromMinutes(5));
+        });        
     }
     ```
 
@@ -56,33 +63,8 @@ Install-Package XperienceCommunity.OutputCache
     ```csharp
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
-        if (env.IsDevelopment())
-        {
-            app.UseDeveloperExceptionPage();
-        }
-        else
-        {
-            app.UseExceptionHandler("/Home/Error");
-            app.UseHsts();
-        }
-
-        app.UseHttpsRedirection();
-        app.UseStaticFiles();
-
-        app.UseRouting();
-
-        app.UseAuthentication();
-        app.UseAuthorization();
-
-        // Use Xperience Output Cache middleware
-        app.UseXperienceOutputCache();
-
-        app.UseEndpoints(endpoints =>
-        {
-            endpoints.MapControllerRoute(
-                name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
-        });
+        // Use Output Cache middleware
+        app.UseOutputCache();
     }
     ```
 
@@ -90,20 +72,20 @@ Install-Package XperienceCommunity.OutputCache
 
 The library will automatically handle caching and invalidation based on updates within Xperience by Kentico. For advanced configuration and customization, refer to the [documentation](docs/Configuration.md).
 
-## Contributing
 
-Contributions are welcome! Please read the [contributing guidelines](CONTRIBUTING.md) for more details.
+## Built With
+
+* [Xperience By Kentico](https://www.kentico.com) - Kentico Xperience
+* [NuGet](https://nuget.org/) - Dependency Management
+
+## Versioning
+
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/brandonhenricks/xperience-community-health-checks/tags). 
+
+## Authors
+
+* **Brandon Henricks** - *Initial work* - [Brandon Henricks](https://github.com/brandonhenricks)
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Acknowledgments
-
-Special thanks to the Xperience by Kentico community for their support and contributions.
-
-## Contact
-
-For further information, issues, or support, please open an issue on the [GitHub repository](https://github.com/XperienceCommunity/OutputCache/issues).
-
-```
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
