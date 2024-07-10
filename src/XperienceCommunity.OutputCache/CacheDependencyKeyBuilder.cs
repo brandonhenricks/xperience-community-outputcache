@@ -52,9 +52,9 @@ namespace XperienceCommunity.OutputCache
             return AddKey($"bypath|{path}");
         }
 
-        public IEnumerable<string> Build()
+        public string[] Build()
         {
-            return _keys;
+            return _keys.ToArray();
         }
 
         public CacheDependencyKeyBuilder ForContentItem()
