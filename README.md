@@ -1,7 +1,7 @@
 # XperienceCommunity.OutputCache
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Build Status](https://github.com/Xperience-Community-OutputCache/actions/workflows/build.yml/badge.svg)](https://github.com/Xperience-Community-OutputCache/actions)
+[![Build Status](github.com/brandonhenricks/xperience-community-outputcache/actions/workflows/build.yml/badge.svg)](https://github.com/Xperience-Community-OutputCache/actions)
 
 ## Overview
 
