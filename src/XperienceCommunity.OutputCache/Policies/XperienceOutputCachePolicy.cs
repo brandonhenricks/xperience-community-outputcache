@@ -24,7 +24,7 @@ namespace XperienceCommunity.OutputCache.Policies
             context.AllowCacheStorage = attemptOutputCaching;
             context.AllowLocking = true;
 
-            context.CacheVaryByRules.VaryByValues.TryAdd("ContactId",
+            context.CacheVaryByRules.VaryByValues.TryAdd(nameof(ContactInfo.ContactID),
                 ContactManagementContext.CurrentContactID.ToString());
 
             // Vary by any query by default
