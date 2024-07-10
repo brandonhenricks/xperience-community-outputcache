@@ -100,7 +100,7 @@ namespace XperienceCommunity.OutputCache
         /// <returns>An array of cache dependency keys.</returns>
         public string[] Build()
         {
-            return _keys.ToArray();
+            return [.. _keys];
         }
 
         /// <summary>
