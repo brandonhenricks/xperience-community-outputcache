@@ -8,6 +8,15 @@ using XperienceCommunity.OutputCache.Extensions;
 
 namespace XperienceCommunity.OutputCache.Policies
 {
+    /// <summary>
+    /// Xperience Output Cache Policy
+    /// </summary>
+    /// <remarks>
+    /// This Policy is set to vary by any query, or route by default. Along with a VaryByValues on ContactId
+    /// In addition, it will not cache requests that are not GET or HEAD, have authorization headers, or are in preview or edit mode.
+    /// Cache Dependency Keys are generated based on the current page's WebPageItemID and WebsiteChannelName.
+    /// With additional Cache Dependency Keys added based on the HttpContext's dependency keys.
+    /// </remarks>
     public sealed class XperienceOutputCachePolicy : IOutputCachePolicy
     {
         private readonly IWebPageDataContextRetriever _webPageDataContextRetriever;
