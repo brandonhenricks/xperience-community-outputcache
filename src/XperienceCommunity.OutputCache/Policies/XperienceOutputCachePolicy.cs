@@ -65,8 +65,7 @@ namespace XperienceCommunity.OutputCache.Policies
             {
                 cacheKeys.Add($"webpageitem|bychannel|{pageData.WebPage.WebsiteChannelName}");
 
-                cacheKeys.Add($"webpageitem|byid|{pageData.WebPage.WebPageItemID}|{pageData.WebPage.LanguageName}"
-                    .ToLowerInvariant());
+                cacheKeys.Add($"webpageitem|byid|{pageData.WebPage.WebPageItemID}|{pageData.WebPage.LanguageName}");
             }
 
             var cacheItemKeys = context.HttpContext.GetDependencyKeys();
