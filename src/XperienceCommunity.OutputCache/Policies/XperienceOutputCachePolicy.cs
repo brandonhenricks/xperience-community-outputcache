@@ -122,7 +122,7 @@ namespace XperienceCommunity.OutputCache.Policies
             }
 
             // Verify existence of anti-forgery token
-            if (!StringValues.IsNullOrEmpty(request.Headers["RequestVerificationToken"]))
+            if (!StringValues.IsNullOrEmpty(request.Headers[Constants.HeaderKeys.RequestVerificationToken]))
             {
                 return false;
             }

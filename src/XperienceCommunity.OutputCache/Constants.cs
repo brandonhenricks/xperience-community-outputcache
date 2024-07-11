@@ -13,6 +13,11 @@
             internal const string DependencyKeys = "DependencyKeys";
         }
 
+        internal readonly struct HeaderKeys
+        {
+            internal const string RequestVerificationToken = "RequestVerificationToken";
+        }
+
         internal readonly struct CacheSegments
         {
             /// <summary>
