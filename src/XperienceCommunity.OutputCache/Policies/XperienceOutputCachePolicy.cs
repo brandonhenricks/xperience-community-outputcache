@@ -1,9 +1,9 @@
 ﻿using CMS.ContactManagement;
 using Kentico.Content.Web.Mvc;
-using Kentico.Web.Mvc;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.OutputCaching;
 using Microsoft.Extensions.Primitives;
+using XperienceCommunity.OutputCache.Extensions;
 
 namespace XperienceCommunity.OutputCache.Policies
 {
@@ -84,7 +84,7 @@ namespace XperienceCommunity.OutputCache.Policies
                 return false;
             }
 
-            if (context.HttpContext.Kentico().Preview().Enabled)
+            if (context.HttpContext.InPreview()|| context.HttpContext.InEditMode())
             {
                 return false;
             }
