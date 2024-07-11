@@ -31,7 +31,7 @@ namespace XperienceCommunity.OutputCache
         /// <returns>The current instance of <see cref="CacheDependencyKeyBuilder"/>.</returns>
         public CacheDependencyKeyBuilder AddChannel(string channelName)
         {
-            return AddKey($"bychannel|{channelName}");
+            return AddKey($"{Constants.CacheSegments.Channel}|{channelName}");
         }
 
         /// <summary>
@@ -41,7 +41,7 @@ namespace XperienceCommunity.OutputCache
         /// <returns>The current instance of <see cref="CacheDependencyKeyBuilder"/>.</returns>
         public CacheDependencyKeyBuilder AddChildrenOfPath(string path)
         {
-            return AddKey($"childrenofpath|{path}");
+            return AddKey($"{Constants.CacheSegments.ChildrenOfPath}|{path}");
         }
 
         /// <summary>
@@ -51,7 +51,7 @@ namespace XperienceCommunity.OutputCache
         /// <returns>The current instance of <see cref="CacheDependencyKeyBuilder"/>.</returns>
         public CacheDependencyKeyBuilder AddCodeName(string codeName)
         {
-            return AddKey($"byname|{codeName}");
+            return AddKey($"{Constants.CacheSegments.ByName}|{codeName}");
         }
 
         /// <summary>
@@ -61,7 +61,7 @@ namespace XperienceCommunity.OutputCache
         /// <returns>The current instance of <see cref="CacheDependencyKeyBuilder"/>.</returns>
         public CacheDependencyKeyBuilder AddContentType(string contentType)
         {
-            return AddKey($"bycontenttype|{contentType}");
+            return AddKey($"{Constants.CacheSegments.ByContentType}|{contentType}");
         }
 
         /// <summary>
@@ -71,7 +71,7 @@ namespace XperienceCommunity.OutputCache
         /// <returns>The current instance of <see cref="CacheDependencyKeyBuilder"/>.</returns>
         public CacheDependencyKeyBuilder AddGuid(Guid guid)
         {
-            return AddKey($"byguid|{guid}");
+            return AddKey($"{Constants.CacheSegments.ByGuid}|{guid}");
         }
 
         /// <summary>
@@ -81,7 +81,7 @@ namespace XperienceCommunity.OutputCache
         /// <returns>The current instance of <see cref="CacheDependencyKeyBuilder"/>.</returns>
         public CacheDependencyKeyBuilder AddId(int id)
         {
-            return AddKey($"byid|{id}");
+            return AddKey($"{Constants.CacheSegments.ById}|{id}");
         }
 
         /// <summary>
@@ -91,7 +91,7 @@ namespace XperienceCommunity.OutputCache
         /// <returns>The current instance of <see cref="CacheDependencyKeyBuilder"/>.</returns>
         public CacheDependencyKeyBuilder AddPath(string path)
         {
-            return AddKey($"bypath|{path}");
+            return AddKey($"{Constants.CacheSegments.ByPath}|{path}");
         }
 
         /// <summary>
@@ -109,7 +109,7 @@ namespace XperienceCommunity.OutputCache
         /// <returns>The current instance of <see cref="CacheDependencyKeyBuilder"/>.</returns>
         public CacheDependencyKeyBuilder ForContentItem()
         {
-            _prefix = "contentitem";
+            _prefix = Constants.CacheSegments.ContentItem;
             return this;
         }
 
@@ -119,7 +119,7 @@ namespace XperienceCommunity.OutputCache
         /// <returns>The current instance of <see cref="CacheDependencyKeyBuilder"/>.</returns>
         public CacheDependencyKeyBuilder ForWebPageItem()
         {
-            _prefix = "webpageitem";
+            _prefix = Constants.CacheSegments.WebPageItem;
             return this;
         }
 

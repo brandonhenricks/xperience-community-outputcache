@@ -1,4 +1,5 @@
 ﻿using CMS.ContactManagement;
+using CMS.Helpers;
 using Kentico.Content.Web.Mvc;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.OutputCaching;
@@ -58,12 +59,28 @@ namespace XperienceCommunity.OutputCache.Policies
                 return ValueTask.CompletedTask;
             }
 
+            var cacheKeys = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+
             if (_webPageDataContextRetriever.TryRetrieve(out var pageData))
             {
-                context.Tags.Add($"webpageitem|bychannel|{pageData.WebPage.WebsiteChannelName}");
+                cacheKeys.Add($"webpageitem|bychannel|{pageData.WebPage.WebsiteChannelName}");
 
-                context.Tags.Add($"webpageitem|byid|{pageData.WebPage.WebPageItemID}|{pageData.WebPage.LanguageName}"
+                cacheKeys.Add($"webpageitem|byid|{pageData.WebPage.WebPageItemID}|{pageData.WebPage.LanguageName}"
                     .ToLowerInvariant());
+            }
+
+            var cacheItemKeys = context.HttpContext.GetDependencyKeys();
+
+            foreach (var key in cacheItemKeys)
+            {
+                cacheKeys.Add(key);
+            }
+
+            foreach (var key in cacheKeys)
+            {
+                CacheHelper.EnsureDummyKey(key);
+
+                context.Tags.Add(key);
             }
 
             context.AllowCacheStorage = true;
