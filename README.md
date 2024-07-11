@@ -72,13 +72,13 @@ Install-Package XperienceCommunity.OutputCache
 Output caching is now enabled for your application. The library will automatically handle caching and invalidation based on updates within Xperience by Kentico.
 To add output caching to your views, use the `OutputCache` attribute on your controller actions:
 
-    ```csharp
-    [OutputCache(PolicyName = "KenticoPolicy")]
-    public async Task<IActionResult> Index()
-    {
-        return View();
-    }
-    ```
+```csharp
+[OutputCache(PolicyName = "KenticoPolicy")]
+public async Task<IActionResult> Index()
+{
+    return View();
+}
+```
 
 
 ## Built With
