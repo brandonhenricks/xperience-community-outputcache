@@ -109,7 +109,7 @@ namespace XperienceCommunity.OutputCache.Policies
                 return false;
             }
 
-            if (context.HttpContext.InPreview()|| context.HttpContext.InEditMode())
+            if (context.HttpContext.InPreview() || context.HttpContext.InEditMode())
             {
                 return false;
             }
@@ -117,6 +117,12 @@ namespace XperienceCommunity.OutputCache.Policies
             // Verify existence of authorization headers
             if (!StringValues.IsNullOrEmpty(request.Headers.Authorization) ||
                 request.HttpContext.User?.Identity?.IsAuthenticated == true)
+            {
+                return false;
+            }
+
+            // Verify existence of anti-forgery token
+            if (!StringValues.IsNullOrEmpty(request.Headers["RequestVerificationToken"]))
             {
                 return false;
             }
