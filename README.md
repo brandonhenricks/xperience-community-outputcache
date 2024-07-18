@@ -80,6 +80,9 @@ public async Task<IActionResult> Index()
 }
 ```
 
+### Helper Methods:
+
+The library includes the AddDependencyKeys() extension method for use with HttpContext. This method is intended for use on controllers and view components to enhance cache dependency management, ensuring more precise and efficient cache invalidation.
 
 ## Built With
 
