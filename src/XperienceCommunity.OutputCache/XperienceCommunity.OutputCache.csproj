@@ -11,7 +11,7 @@
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/brandonhenricks/xperience-community-outputcache</RepositoryUrl>
     <Authors>Brandon Henricks</Authors>
-    <Description>Adds a custom OutputCachePolicy, and OutputCacheStore to your application. This allows for invalidating the cache via Kentico Dependency Keys.</Description>
+    <DescriptionXperienceCommunity.OutputCache is a .NET library that integrates output caching with Xperience by Kentico, supporting .NET 7 and 8. It ensures high performance and fresh content by automatically invalidating cached content upon updates within Kentico.</Description>
     <IncludeSymbols>True</IncludeSymbols>
     <AnalysisLevel>latest</AnalysisLevel>
   </PropertyGroup>
