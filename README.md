@@ -23,7 +23,7 @@
 ### Prerequisites
 
 - .NET 7 or 8 installed on your development machine.
-- An existing project with Xperience by Kentico (29.1.4 or higher).
+- An existing project with Xperience by Kentico (28.2.0 or higher).
 
 ### Installation
 
