@@ -1,11 +1,9 @@
-﻿using System.Text;
-
-namespace XperienceCommunity.OutputCache
+﻿namespace XperienceCommunity.OutputCache
 {
     /// <summary>
     /// Represents a builder for generating cache dependency keys.
     /// </summary>
-    public class CacheDependencyKeyBuilder
+    public sealed class CacheDependencyKeyBuilder
     {
         private readonly HashSet<string> _keys;
         private string? _prefix;
